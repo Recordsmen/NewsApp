@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.newsapp.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_articleScreen"
+            app:destination="@id/articleScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleScreen"
+        android:name="com.example.newsapp.ArticleScreen"
+        android:label="ArticleScreen"
+        tools:layout="@layout/article_screen_fragment">
+        <action
+            android:id="@+id/action_articleScreen_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoritesScreen2"
+        android:name="com.example.newsapp.FavoritesScreen"
+        android:label="favorites_screen_fragment"
+        tools:layout="@layout/favorites_screen_fragment">
+
+    </fragment>
+
+</navigation>
