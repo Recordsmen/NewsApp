@@ -18,7 +18,12 @@ interface DataBaseDao {
     @Query("SELECT * FROM DataBaseNews WHERE isStarred == 1")
     fun getAllStarredNews():List<Source>
 
+    @Query("UPDATE DataBaseNews SET isStarred = :isStarred WHERE id=:id")
+    fun setNewsIsStarred(id: String, isStarred: Boolean)
+
     @Update
-    fun updateUsers(vararg news: DataBaseNews)
+    fun updateUsers(news: DataBaseNews)
+
+
 
 }

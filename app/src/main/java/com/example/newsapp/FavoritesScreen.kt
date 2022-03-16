@@ -6,26 +6,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModel
+import com.example.RecyclerViewAdapter
+import com.example.newsapp.databinding.FavoritesScreenFragmentBinding
 
 class FavoritesScreen : Fragment() {
 
-    companion object {
-        fun newInstance() = FavoritesScreen()
+    private val viewModel: MainViewModel by lazy {
+        ViewModelProvider(this).get(MainViewModel::class.java)
     }
-
-    private lateinit var viewModel: FavoritesScreenViewModel
+    lateinit var binding:FavoritesScreenFragmentBinding
+    private lateinit var adapter: RecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.favorites_screen_fragment, container, false)
-    }
+        binding = FavoritesScreenFragmentBinding.inflate(layoutInflater,container,false)
+        adapter = RecyclerViewAdapter()
+        binding.recyclerView.adapter = adapter
+        viewModel.getStarredNewsFromDataBase()
+        viewModel.response.observe(viewLifecycleOwner, {
+                news -> adapter.setData(news)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(FavoritesScreenViewModel::class.java)
-        // TODO: Use the ViewModel
+        })
+
+        return binding.root
     }
 
 }

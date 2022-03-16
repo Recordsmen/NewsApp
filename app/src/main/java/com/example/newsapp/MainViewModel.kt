@@ -6,16 +6,13 @@ import androidx.lifecycle.*
 import com.example.repository.Repository
 import com.example.database.NewsDataBase
 import com.example.model.Source
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val database = NewsDataBase.getDatabase(application.applicationContext)
     private val newsRepository = Repository(database)
-
-    private val _navigateToAllCategories = MutableLiveData<Boolean>()
-    val navigateToAllCategories:LiveData<Boolean> get() = _navigateToAllCategories
-
 
     private var _response = MutableLiveData<List<Source>>()
     val response:LiveData<List<Source>> get() = _response
@@ -27,7 +24,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun getAllNews(){
         viewModelScope.launch {
             newsRepository.addAllNews()
-            Log.i("LOG","Success")
+            Log.i("LOG","LoadAllNews")
         }
     }
     fun getNewsFromDataBase(){
@@ -46,13 +43,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun getStarredNewsFromDataBase(){
         viewModelScope.launch {
             _response.value = newsRepository.getAllStaredNews()
-            Log.i("Log","GetCategoryNews")
+            Log.i("Log","GetStarredNews")
         }
     }
 
-    fun updateUsers(){
-        viewModelScope.launch {
-            newsRepository.updateUsers()
+    fun setNewsStarred(id:String, isStarred:Boolean) {
+        viewModelScope.launch(Dispatchers.IO) {
+                newsRepository.setNewsStarred(id,isStarred)
         }
     }
+
 }

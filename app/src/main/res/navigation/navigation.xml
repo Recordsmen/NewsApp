@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_articleScreen"
             app:destination="@id/articleScreen" />
+        <action
+            android:id="@+id/action_favorite"
+            app:destination="@id/favoritesScreen2" />
     </fragment>
 
     <fragment
@@ -20,9 +23,6 @@
         android:name="com.example.newsapp.ArticleScreen"
         android:label="ArticleScreen"
         tools:layout="@layout/article_screen_fragment">
-        <action
-            android:id="@+id/action_articleScreen_to_mainFragment"
-            app:destination="@id/mainFragment" />
         <argument
             android:name="category"
             app:argType="string" />

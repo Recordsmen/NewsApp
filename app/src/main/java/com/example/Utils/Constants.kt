@@ -1,5 +1,6 @@
 package com.example.Utils
 
+import androidx.lifecycle.Transformations.map
 import com.example.database.DataBaseNews
 import com.example.model.Source
 import org.json.JSONObject
@@ -9,10 +10,6 @@ object Constants {
 
     const val BASE_URL = "https://newsapi.org/v2/top-headlines/"
     const val TRY = "sources?apiKey=7d3bbd1879e44d289de679c65458e798"
-    const val CATEGORY = "category="
-    const val CHOOSEN_CATEGORY = "business"
-    const val API = "apiKey="
-    const val QUERY_API_KEY_PARAM = "api_key"
 
 }
 
@@ -33,7 +30,7 @@ fun parseNewsJsonResult(jsonResult: JSONObject): ArrayList<Source> {
 
         val news = Source(
             category, country, description, id,
-            language, name, url
+            language, name, url, isStarred = false
         )
         sourcesList.add(news)
     }

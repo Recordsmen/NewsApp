@@ -5,12 +5,12 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Source(
-    val category: String,
+    val id: String,
     val country: String,
     val description: String,
-    val id: String,
+    val category: String,
     val language: String,
     val name: String,
     val url: String,
-    val isStarred:Boolean
+    var isStarred:Boolean
     ):Parcelable

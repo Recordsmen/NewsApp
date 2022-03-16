@@ -2,7 +2,6 @@ package com.example.ApiService
 
 import com.example.Utils.Constants
 import com.example.Utils.Constants.BASE_URL
-import com.example.model.News
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi

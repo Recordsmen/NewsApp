@@ -46,9 +46,10 @@ class Repository(private val dataBase: NewsDataBase) {
         return result
     }
 
-    suspend fun updateUsers(){
-        withContext(Dispatchers.IO){
-            dataBase.newsDataBaseDao.updateUsers()
+    suspend fun setNewsStarred(NewsID: String, isStarred: Boolean) {
+        withContext(Dispatchers.IO) {
+            dataBase.newsDataBaseDao.setNewsIsStarred(NewsID, isStarred)
         }
     }
+
 }
