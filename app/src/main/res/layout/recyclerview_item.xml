@@ -3,19 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginBottom="@dimen/buttom">
-
-    <data>
-
-        <variable
-            name="Source"
-            type="com.example.model.Source" />
-
-        <variable
-            name="viewmodel"
-            type="com.example.newsapp.MainViewModel" />
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
