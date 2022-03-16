@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.model.Source
 import com.example.newsapp.R
 import com.example.newsapp.databinding.RecyclerviewItemBinding
 
-class RecyclerViewAdapter() : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(private val itemClickListener: ItemClickListener) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>(){
     private var dataSet = listOf<Source>()
 
     class ViewHolder private constructor(val binding: RecyclerviewItemBinding): RecyclerView.ViewHolder(binding.root) {
@@ -42,32 +43,29 @@ class RecyclerViewAdapter() : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolde
                 else -> R.drawable.ic_baseline_favorite_border_24
             }
         )
+        viewHolder.binding.isFavorite.isChecked =
+            when(dataSet[position].isStarred){
+                true -> true
+                false -> false
+            }
 
         viewHolder.binding.isFavorite.setOnCheckedChangeListener { compoundButton, b ->
-            compoundButton.setButtonDrawable( when (b){
-                true -> R.drawable.ic_baseline_favorite_24
-                false -> R.drawable.ic_baseline_favorite_border_24
-            })
-
             when(b){
                 true -> {
                     dataSet[position].isStarred = true
-                    viewHolder.binding.viewmodel?.setNewsStarred(
-                        dataSet[position].id,
-                        dataSet[position].isStarred
-                    )
-                    Log.i(dataSet[position].id,"InFavorite: ${dataSet[position].isStarred}")
+                    compoundButton.setButtonDrawable(R.drawable.ic_baseline_favorite_24)
                 }
                 false -> {
                     dataSet[position].isStarred = false
-                    viewHolder.binding.viewmodel?.setNewsStarred(
-                        dataSet[position].id,
-                        dataSet[position].isStarred
-                    )
-                    Log.i(dataSet[position].id,"InFavorite: ${dataSet[position].isStarred}")
+                    compoundButton.setButtonDrawable(R.drawable.ic_baseline_favorite_border_24)
                 }
 
             }
+        }
+
+        viewHolder.binding.isFavorite.setOnClickListener {
+            itemClickListener.toFavorite(dataSet[position].id,dataSet[position].isStarred)
+            Log.i(dataSet[position].id,"InFavoriteINTERFACE: ${dataSet[position].isStarred}")
         }
     }
 

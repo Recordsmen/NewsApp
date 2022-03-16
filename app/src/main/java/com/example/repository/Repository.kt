@@ -17,14 +17,12 @@ class Repository(private val dataBase: NewsDataBase) {
             val responseBody:ResponseBody = NewsApi.retrofitService.getNews()
             val newsList = parseNewsJsonResult(JSONObject(responseBody.string()))
             dataBase.newsDataBaseDao.insertAll(*newsList.asDomainModel())
-
         }
     }
     suspend fun getAllNews():List<Source>{
         lateinit var result:List<Source>
         withContext(Dispatchers.IO){
             result = dataBase.newsDataBaseDao.getAllNews()
-
         }
         return result
     }
@@ -51,5 +49,4 @@ class Repository(private val dataBase: NewsDataBase) {
             dataBase.newsDataBaseDao.setNewsIsStarred(NewsID, isStarred)
         }
     }
-
 }

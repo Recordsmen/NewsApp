@@ -9,7 +9,7 @@ import com.example.model.Source
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+open class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val database = NewsDataBase.getDatabase(application.applicationContext)
     private val newsRepository = Repository(database)
@@ -20,8 +20,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     init {
         getAllNews()
     }
-
-    fun getAllNews(){
+    private fun getAllNews(){
         viewModelScope.launch {
             newsRepository.addAllNews()
             Log.i("LOG","LoadAllNews")
@@ -39,18 +38,15 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             Log.i("Log","GetCategoryNews")
         }
     }
-
     fun getStarredNewsFromDataBase(){
         viewModelScope.launch {
             _response.value = newsRepository.getAllStaredNews()
             Log.i("Log","GetStarredNews")
         }
     }
-
     fun setNewsStarred(id:String, isStarred:Boolean) {
-        viewModelScope.launch(Dispatchers.IO) {
-                newsRepository.setNewsStarred(id,isStarred)
+        viewModelScope.launch {
+            newsRepository.setNewsStarred(id,isStarred)
         }
     }
-
 }

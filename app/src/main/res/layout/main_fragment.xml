@@ -2,23 +2,24 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.newsapp.MainFragment">
+    tools:context="com.example.newsapp.MainScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/default_text_color">
+        android:background="@color/primaryColor">
 
         <ListView
             android:id="@+id/category_list"
             android:layout_width="match_parent"
             android:layout_height="500dp"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            tools:listitem="@layout/recyclerview_item" />
 
         <Button
             android:id="@+id/btn_favorites"
@@ -30,7 +31,21 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/category_list" />
+            app:layout_constraintTop_toBottomOf="@+id/category_list"
+            app:layout_constraintVertical_bias="0.454" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="242dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="@string/News"
+            android:textSize="@dimen/LargeText"
+            app:layout_constraintBottom_toTopOf="@+id/category_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

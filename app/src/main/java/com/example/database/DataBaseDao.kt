@@ -20,10 +20,4 @@ interface DataBaseDao {
 
     @Query("UPDATE DataBaseNews SET isStarred = :isStarred WHERE id=:id")
     fun setNewsIsStarred(id: String, isStarred: Boolean)
-
-    @Update
-    fun updateUsers(news: DataBaseNews)
-
-
-
 }

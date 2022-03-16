@@ -1,6 +1,5 @@
 package com.example.Utils
 
-import androidx.lifecycle.Transformations.map
 import com.example.database.DataBaseNews
 import com.example.model.Source
 import org.json.JSONObject
