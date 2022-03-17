@@ -1,4 +1,4 @@
-package com.example.newsapp
+package com.example.ui
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

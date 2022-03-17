@@ -2,11 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.newsapp.ArticleScreen">
+    tools:context="com.example.ui.ArticleScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/primaryColor">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -33,6 +34,7 @@
             android:gravity="center"
             android:text="@string/nameNews"
             android:textAlignment="center"
+            android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/LargeText"
             app:layout_constraintBottom_toTopOf="@+id/recyclerView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,7 +51,8 @@
             android:gravity="center"
             android:text="@string/about"
             android:textAlignment="gravity"
-            android:textSize="@dimen/MediumText"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="@dimen/Medium_LargeText"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.newsapp.MainScreen"
-        android:label="MainFragment"
+        android:name="com.example.ui.MainScreen"
+        android:label="@string/News"
         tools:layout="@layout/main_fragment">
         <action
             android:id="@+id/action_articleScreen"
             app:destination="@id/articleScreen" />
         <action
             android:id="@+id/action_favorite"
-            app:destination="@id/favoritesScreen2" />
+            app:destination="@id/favoritesScreen" />
     </fragment>
 
     <fragment
         android:id="@+id/articleScreen"
-        android:name="com.example.newsapp.ArticleScreen"
-        android:label="ArticleScreen"
+        android:name="com.example.ui.ArticleScreen"
+        android:label="@string/Articles"
         tools:layout="@layout/article_screen_fragment">
         <argument
             android:name="category"
@@ -29,9 +29,9 @@
     </fragment>
 
     <fragment
-        android:id="@+id/favoritesScreen2"
-        android:name="com.example.newsapp.FavoritesScreen"
-        android:label="favorites_screen_fragment"
+        android:id="@+id/favoritesScreen"
+        android:name="com.example.ui.FavoritesScreen"
+        android:label="@string/FavoriteNews"
         tools:layout="@layout/favorites_screen_fragment">
 
     </fragment>

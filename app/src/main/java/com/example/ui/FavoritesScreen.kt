@@ -1,7 +1,6 @@
-package com.example.newsapp
+package com.example.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.ItemClickListener
 import com.example.RecyclerViewAdapter
-import com.example.newsapp.databinding.FavoritesScreenFragmentBinding
+import com.example.ui.databinding.FavoritesScreenFragmentBinding
+import com.example.viewModel.MainViewModel
 
 class FavoritesScreen : Fragment() {
 

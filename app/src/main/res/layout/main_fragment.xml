@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.newsapp.MainScreen">
+    tools:context="com.example.ui.MainScreen">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,13 +12,14 @@
         <ListView
             android:id="@+id/category_list"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="450dp"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.355"
             tools:listitem="@layout/recyclerview_item" />
 
         <Button
@@ -28,24 +29,37 @@
             android:background="#F87979"
             android:text="@string/favorites"
             android:textAlignment="center"
+            android:textColor="@color/primaryTextColor"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/category_list"
-            app:layout_constraintVertical_bias="0.454" />
+            app:layout_constraintVertical_bias="0.793" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_AppName"
             android:layout_width="242dp"
             android:layout_height="60dp"
             android:gravity="center"
             android:text="@string/News"
+            android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/LargeText"
             app:layout_constraintBottom_toTopOf="@+id/category_list"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btn_signIn"
+            android:layout_width="123dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/category_list"
+            app:layout_constraintVertical_bias="0.128" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

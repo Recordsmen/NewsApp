@@ -1,7 +1,7 @@
-package com.example.ApiService
+package com.example.apiService
 
-import com.example.Utils.Constants
-import com.example.Utils.Constants.BASE_URL
+import com.example.utils.Constants
+import com.example.utils.Constants.BASE_URL
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.ResponseBody
@@ -17,8 +17,8 @@ object NewsApi {
         .build()
 
     interface NewsApiServices {
-        @GET(Constants.TRY)
-        suspend fun getNews(): ResponseBody
+        @GET(Constants.API_KEY)
+        suspend fun getNewsFromApi(): ResponseBody
     }
 
     val retrofitService: NewsApiServices by lazy {

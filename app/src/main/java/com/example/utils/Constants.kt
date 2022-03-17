@@ -1,14 +1,13 @@
-package com.example.Utils
+package com.example.utils
 
 import com.example.database.DataBaseNews
 import com.example.model.Source
 import org.json.JSONObject
 
 object Constants {
-    const val API_KEY = "7d3bbd1879e44d289de679c65458e798"
 
     const val BASE_URL = "https://newsapi.org/v2/top-headlines/"
-    const val TRY = "sources?apiKey=7d3bbd1879e44d289de679c65458e798"
+    const val API_KEY = "sources?apiKey=7d3bbd1879e44d289de679c65458e798"
 
 }
 
@@ -28,8 +27,9 @@ fun parseNewsJsonResult(jsonResult: JSONObject): ArrayList<Source> {
         val url = newsJson.getString("url")
 
         val news = Source(
-            category, country, description, id,
-            language, name, url, isStarred = false
+            id,
+            category, country, description,
+            language, name, url, isFavorite = false
         )
         sourcesList.add(news)
     }
@@ -47,7 +47,7 @@ fun ArrayList<Source>.asDomainModel(): Array<DataBaseNews> {
             language = it.language,
             name = it.name,
             url = it.url,
-            isStarred = false
+            isFavorite = false
         )
     }
         .toTypedArray()

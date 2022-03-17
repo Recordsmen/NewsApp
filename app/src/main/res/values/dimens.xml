@@ -5,6 +5,8 @@
     <dimen name="MediumText">18sp</dimen>
     <dimen name="padding_end">5dp</dimen>
     <dimen name="buttom">8dp</dimen>
-    <dimen name="linkTextSize">8sp</dimen>
+    <dimen name="linkTextSize">7sp</dimen>
     <dimen name="text_padding">2dp</dimen>
+    <dimen name="Medium_LargeText">22sp</dimen>
+    <dimen name="smallPAddingForCategory">4dp</dimen>
 </resources>

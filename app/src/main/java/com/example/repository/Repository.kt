@@ -1,8 +1,8 @@
 package com.example.repository
 import android.util.Log
-import com.example.ApiService.NewsApi
-import com.example.Utils.asDomainModel
-import com.example.Utils.parseNewsJsonResult
+import com.example.apiService.NewsApi
+import com.example.utils.asDomainModel
+import com.example.utils.parseNewsJsonResult
 import com.example.database.NewsDataBase
 import com.example.model.Source
 import kotlinx.coroutines.Dispatchers
@@ -12,41 +12,39 @@ import org.json.JSONObject
 
 class Repository(private val dataBase: NewsDataBase) {
 
-    suspend fun addAllNews(){
+    suspend fun addAllNewsToDatabase(){
         withContext(Dispatchers.IO) {
-            val responseBody:ResponseBody = NewsApi.retrofitService.getNews()
+            val responseBody:ResponseBody = NewsApi.retrofitService.getNewsFromApi()
             val newsList = parseNewsJsonResult(JSONObject(responseBody.string()))
             dataBase.newsDataBaseDao.insertAll(*newsList.asDomainModel())
         }
     }
-    suspend fun getAllNews():List<Source>{
+    suspend fun showAllNewsFromDatabase():List<Source>{
         lateinit var result:List<Source>
         withContext(Dispatchers.IO){
-            result = dataBase.newsDataBaseDao.getAllNews()
+            result = dataBase.newsDataBaseDao.showAllNews()
         }
         return result
     }
-    suspend fun getCategoryNews(category:String):List<Source>{
+    suspend fun showNewsSortedByCategoryFromDatabase(category:String):List<Source>{
         lateinit var result:List<Source>
         withContext(Dispatchers.IO){
-            result = dataBase.newsDataBaseDao.getCategoryNews(category)
+            result = dataBase.newsDataBaseDao.showNewsSortedByCategory(category)
             Log.i("LOG",result.size.toString())
         }
         return result
     }
-
-    suspend fun getAllStaredNews():List<Source>{
+    suspend fun showAllFavoriteNews():List<Source>{
         lateinit var result:List<Source>
         withContext(Dispatchers.IO){
-            result = dataBase.newsDataBaseDao.getAllStarredNews()
+            result = dataBase.newsDataBaseDao.getAllFavoriteNews()
             Log.i("LOG",result.size.toString())
         }
         return result
     }
-
-    suspend fun setNewsStarred(NewsID: String, isStarred: Boolean) {
+    suspend fun setArticleIsFavorite(NewsID: String, isStarred: Boolean) {
         withContext(Dispatchers.IO) {
-            dataBase.newsDataBaseDao.setNewsIsStarred(NewsID, isStarred)
+            dataBase.newsDataBaseDao.setArticleIsFavorite(NewsID, isStarred)
         }
     }
 }

@@ -13,5 +13,5 @@ data class DataBaseNews constructor(
     val language: String,
     val name: String,
     val url: String,
-    val isStarred: Boolean
+    val isFavorite: Boolean
 )

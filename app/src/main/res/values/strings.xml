@@ -18,6 +18,9 @@
     <string name="nameNews">News</string>
     <string name="about">About</string>
     <string name="id">id</string>
+    <string name="FavoriteNews">FavoriteNews</string>
+    <string name="Articles">Articles</string>
     <string name="News">News</string>
+    <string name="Category">Category: </string>
 
 </resources>

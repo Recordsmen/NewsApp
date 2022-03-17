@@ -1,4 +1,4 @@
-package com.example.newsapp
+package com.example.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.example.ItemClickListener
 import com.example.RecyclerViewAdapter
-import com.example.newsapp.databinding.ArticleScreenFragmentBinding
+import com.example.ui.databinding.ArticleScreenFragmentBinding
+import com.example.viewModel.MainViewModel
 
 class ArticleScreen : Fragment(), ItemClickListener {
 

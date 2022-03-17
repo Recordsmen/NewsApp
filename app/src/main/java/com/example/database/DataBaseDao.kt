@@ -10,14 +10,14 @@ interface DataBaseDao {
     fun insertAll(vararg news: DataBaseNews)
 
     @Query("SELECT * FROM DataBaseNews")
-    fun getAllNews():List<Source>
+    fun showAllNews():List<Source>
 
     @Query("SELECT * FROM DataBaseNews WHERE category == :category")
-    fun getCategoryNews(category:String):List<Source>
+    fun showNewsSortedByCategory(category:String):List<Source>
 
-    @Query("SELECT * FROM DataBaseNews WHERE isStarred == 1")
-    fun getAllStarredNews():List<Source>
+    @Query("SELECT * FROM DataBaseNews WHERE isFavorite == 1")
+    fun getAllFavoriteNews():List<Source>
 
-    @Query("UPDATE DataBaseNews SET isStarred = :isStarred WHERE id=:id")
-    fun setNewsIsStarred(id: String, isStarred: Boolean)
+    @Query("UPDATE DataBaseNews SET isFavorite = :isFavorite WHERE id=:id")
+    fun setArticleIsFavorite(id: String, isFavorite: Boolean)
 }
