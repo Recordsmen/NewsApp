@@ -12,14 +12,27 @@ open class MainViewModel(application: Application) : AndroidViewModel(applicatio
     private val database = NewsDataBase.getDatabase(application.applicationContext)
     private val newsRepository = Repository(database)
 
-    private var _response = MutableLiveData<List<Source>>()
+    private val _response = MutableLiveData<List<Source>>()
     val response:LiveData<List<Source>> get() = _response
 
-    private var _logged = MutableLiveData<Boolean>()
+    private val _logged = MutableLiveData<Boolean>()
     val logged:LiveData<Boolean> get() = _logged
+
+    private val _listOfCategories = MutableLiveData<List<String>>()
+    val listOfCategories:LiveData<List<String>> get() = _listOfCategories
+
 
     init {
         _logged.value = false
+        _listOfCategories.value= listOf(
+            "All News",
+            "Business",
+            "Entertainment",
+            "General",
+            "Health",
+            "Science",
+            "Sports",
+            "Technology")
         getAllNews()
     }
 

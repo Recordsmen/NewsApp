@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [DataBaseNews::class], version = 10)
+@Database(entities = [DataBaseNews::class], version = 11)
 
 abstract class NewsDataBase:RoomDatabase() {
 
@@ -23,7 +23,7 @@ abstract class NewsDataBase:RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         NewsDataBase::class.java,
-                        "asteroid_database"
+                        "news_database"
                     )
                         .fallbackToDestructiveMigration()
                         .build()

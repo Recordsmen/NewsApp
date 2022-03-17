@@ -5,6 +5,7 @@
     android:layout_marginBottom="@dimen/buttom">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@color/secondaryLightColor"
@@ -29,10 +30,12 @@
 
         <TextView
             android:id="@+id/tv_link"
-            android:layout_width="131dp"
-            android:layout_height="19dp"
+            android:layout_width="117dp"
+            android:layout_height="14dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
+            android:autoLink="web"
+            android:background="@color/primaryColor"
             android:gravity="left|center_vertical"
             android:text="@string/link"
             android:textColor="@color/primaryTextColor"
@@ -95,6 +98,7 @@
             android:layout_height="32dp"
             android:layout_marginTop="5dp"
             android:background="@color/secondaryColor"
+            android:fontFamily="@font/aldrich"
             android:gravity="center"
             android:text="@string/name"
             android:textColor="@color/primaryTextColor"

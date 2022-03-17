@@ -23,11 +23,9 @@ class RecyclerViewAdapter(private val itemClickListener: ItemClickListener) : Re
             }
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
-
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.binding.apply {
             tvDescription.text = dataSet[position].description
@@ -62,7 +60,6 @@ class RecyclerViewAdapter(private val itemClickListener: ItemClickListener) : Re
             }
             cbIsFavorite.setOnClickListener {
                 itemClickListener.toFavorite(dataSet[position].id,dataSet[position].isFavorite)
-                Log.i(dataSet[position].id,"InFavoriteINTERFACE: ${dataSet[position].isFavorite}")
             }
         }
 

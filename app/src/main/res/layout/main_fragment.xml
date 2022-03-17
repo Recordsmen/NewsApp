@@ -12,7 +12,7 @@
         <ListView
             android:id="@+id/category_list"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/category_list"
-            app:layout_constraintVertical_bias="0.793" />
+            app:layout_constraintVertical_bias="0.776" />
 
         <TextView
             android:id="@+id/tv_AppName"
@@ -60,6 +60,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/category_list"
-            app:layout_constraintVertical_bias="0.128" />
+            app:layout_constraintVertical_bias="0.11" />
+
+        <TextView
+            android:id="@+id/tv_howToAbleFavorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/howToAbleFavorites"
+            app:layout_constraintBottom_toTopOf="@+id/btn_favorites"
+            app:layout_constraintEnd_toEndOf="@+id/btn_signIn"
+            app:layout_constraintStart_toStartOf="@+id/btn_signIn"
+            app:layout_constraintTop_toBottomOf="@+id/btn_signIn" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,5 +1,4 @@
 package com.example.repository
-import android.util.Log
 import com.example.apiService.NewsApi
 import com.example.utils.asDomainModel
 import com.example.utils.parseNewsJsonResult
@@ -30,7 +29,6 @@ class Repository(private val dataBase: NewsDataBase) {
         lateinit var result:List<Source>
         withContext(Dispatchers.IO){
             result = dataBase.newsDataBaseDao.showNewsSortedByCategory(category)
-            Log.i("LOG",result.size.toString())
         }
         return result
     }
@@ -38,7 +36,6 @@ class Repository(private val dataBase: NewsDataBase) {
         lateinit var result:List<Source>
         withContext(Dispatchers.IO){
             result = dataBase.newsDataBaseDao.getAllFavoriteNews()
-            Log.i("LOG",result.size.toString())
         }
         return result
     }

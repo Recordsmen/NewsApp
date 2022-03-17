@@ -53,5 +53,4 @@ class ArticleScreen : Fragment(), ItemClickListener {
     override fun toFavorite(NewsId: String, position: Boolean) {
         viewModel.setNewsStarred(NewsId,position)
     }
-
 }
