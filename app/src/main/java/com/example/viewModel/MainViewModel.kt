@@ -35,6 +35,26 @@ open class MainViewModel(application: Application) : AndroidViewModel(applicatio
             "Technology")
         getAllNews()
     }
+    private val _selectedCategory = MutableLiveData<String>()
+    val selectedCategory:LiveData<String> get() = _selectedCategory
+
+    fun displayNews(category: String){
+        val search = when (category){
+            "Business" -> "business"
+            "Entertainment" -> "entertainment"
+            "General" -> "general"
+            "Health" -> "health"
+            "Science" -> "science"
+            "Sports" -> "sports"
+            "Technology" -> "technology"
+            else -> "All News"
+        }
+        when (search){
+            "All News" -> getNewsFromDataBase()
+            else -> getCategoryNewsFromDataBase(search)
+        }
+    }
+
 
     private fun getAllNews(){
         viewModelScope.launch {

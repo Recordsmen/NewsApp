@@ -25,16 +25,8 @@ class ArticleScreen : Fragment(), ItemClickListener {
         binding = ArticleScreenFragmentBinding.inflate(layoutInflater,container,false)
 
         val args: ArticleScreenArgs by navArgs()
-        when (args.category){
-            "Business" -> viewModel.getCategoryNewsFromDataBase("business")
-            "Entertainment" -> viewModel.getCategoryNewsFromDataBase("entertainment")
-            "General" -> viewModel.getCategoryNewsFromDataBase("general")
-            "Health" -> viewModel.getCategoryNewsFromDataBase("health")
-            "Science" -> viewModel.getCategoryNewsFromDataBase("science")
-            "Sports" -> viewModel.getCategoryNewsFromDataBase("sports")
-            "Technology" -> viewModel.getCategoryNewsFromDataBase("technology")
-            else -> viewModel.getNewsFromDataBase()
-        }
+        viewModel.displayNews(args.category)
+
 
         adapter = RecyclerViewAdapter(object : ItemClickListener {
             override fun toFavorite(NewsId: String, position: Boolean) {
